@@ -7,7 +7,7 @@ Create virtual environment:
 .. code-block:: bash
 
    virtualenv venv
-   . venv/bin/activate
+    venv/bin/activate
 
 Install requirements:
 
