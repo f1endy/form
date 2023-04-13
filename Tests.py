@@ -21,7 +21,6 @@ def home():
     return render_template('home.html', users_amount=len(users))
 
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
@@ -78,4 +77,3 @@ def login():
 if __name__ == "__main__":
     app.run(debug=True)
     home()
-
