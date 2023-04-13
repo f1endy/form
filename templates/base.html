@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <h1>Breadcrumbs</h1>
+    <p>
+  <ul>
+    <li><a href="{{url_for('register')}}">Register</a></li>
+    <li><a href="{{url_for('login')}}">Login</a></li>
+    <li><a href="{{url_for('home')}}">Home</a></li>
+    <hr>
+  </ul>
+    </p>
+    {% with messages = get_flashed_messages() %}
+      <ul>
+      {%for message in messages%}
+        <li><p style="color: green;">{{message}}</p></li>
+      {%endfor%}
+      </ul>>
+    {%endwith%}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

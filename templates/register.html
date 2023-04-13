@@ -1,0 +1,100 @@
+{%extends "base.html"%}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post">
+        {{form.hidden_tag()}}
+        <p>
+            {{form.username.label}}
+            {{form.username(size=32)}}
+            {% for error in form.username.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.anrede.label}}
+            {% for subfield in form.anrede %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr>
+            {% endfor %}
+            {% for error in form.anrede.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.vorname.label}}
+            {{form.vorname(size=32)}}
+            {% for error in form.vorname.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.nachname.label}}
+            {{form.nachname(size=32)}}
+            {% for error in form.nachname.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.geburtsdatum.label}}
+            {{form.geburtsdatum(size=32)}}
+            {% for error in form.geburtsdatum.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.strasse_hausnummer.label}}
+            {{form.strasse_hausnummer(size=32)}}
+            {% for error in form.strasse_hausnummer.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.plz.label}}
+            {{form.plz(size=32)}}
+            {% for error in form.plz.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.ort.label}}
+            {{form.ort(size=32)}}
+            {% for error in form.ort.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.email.label}}
+            {{form.email(size=32)}}
+            {% for error in form.email.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.staatsbuergerschaft.label}}
+            {{form.staatsbuergerschaft(size=32)}}
+            {% for error in form.staatsbuergerschaft.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.password.label}}
+            {{form.password(size=32)}}
+            {% for error in form.password.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.confirm.label}}
+            {{form.confirm(size=32)}}
+            {% for error in form.confirm.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        </p>
+
+        <p>{{form.submit()}}</p>
+    </form>
+
+{% endblock %}
