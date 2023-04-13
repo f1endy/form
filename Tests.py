@@ -1,71 +1,3 @@
-# n = int(input())
-# l = []
-# if n % 2 != 0:
-#     print(l)
-#
-#
-# def is_prime(x):
-#     if x == 1:
-#         return False
-#     for i in range(2, n // 2):
-#         if x % i == 0:
-#             return False
-#         else:
-#             continue
-#     return True
-#
-#
-# for i in range()
-
-
-# l = [-5, -3, -1, 0, 3, 4, 6 , 7, 10]
-# n = 7
-#
-#
-# def binary_search(array, x):
-#     check = 0
-#     low = 0
-#     high = len(array) - 1
-#     while True:
-#         mid = low + (high - low) // 2
-#         if array[mid] + check == x:
-#             print(array[check], array[mid])
-#             check += 1
-#             low = check
-#             high = len(array) - 1
-#
-#         elif array[mid] + check < x:
-#             low = mid + 1
-#         elif array[mid] + check > x:
-#             high = mid - 1
-#         if mid + 1 == high and mid - 1 == low:
-#             check += 1
-#             low = check
-#             high = len(array) - 1
-#             return
-#
-#
-# binary_search(l, n)
-#
-# from random import randint
-#
-# import os
-# class My_file:
-#
-#     def __init__(self, name):
-#         self.name = name
-#
-#     def path(self):
-#         print(os.path.abspath(self.name))
-#
-#     def extension(self, ext):
-#         self.name[self.name.find(".")] = "ext"
-#
-#
-# file = My_file("doc.txt")
-# file.extension("exe")
-
-
 from flask import Flask, render_template, flash, url_for, redirect
 from config import Config
 from forms import (
@@ -80,11 +12,28 @@ users = {}
 
 @app.route('/')
 def home():
+    """
+    Renders the home page of the web application, displaying the number of registered users.
+
+    Returns:
+        A rendered HTML template (home.html) with the number of registered users displayed.
+    """
     return render_template('home.html', users_amount=len(users))
+
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Renders the registration page of the web application and handles form submission. If the form is
+    valid and the username is not already taken, it adds the user data to the users dictionary and
+    redirects the user to the login page. If the form is invalid or the username is already taken, it
+    renders the registration page with an error message.
+
+    Returns:
+        If the form is valid and the username is not already taken, a redirect to the login page.
+        Otherwise, a rendered HTML template (register.html) with the registration form displayed.
+    """
     global users
     form = RegisterForm()
     if form.validate_on_submit():
@@ -104,6 +53,15 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Renders the login page of the web application and handles form submission. If the username is
+    not found or the password is incorrect, it renders the login page with an error message. If the
+    login is successful, it redirects the user to the home page.
+
+    Returns:
+        If the login is successful, a redirect to the home page. Otherwise, a rendered HTML template
+        (login.html) with the login form displayed.
+    """
     form = LoginForm()
     if form.validate_on_submit():
         if form.username.data not in users:
@@ -119,12 +77,5 @@ def login():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    home()
 
-# <form method="POST" action="/register">
-#     <label for="anrede">Anrede:</label>
-#     <select name="anrede" id="anrede">
-#         <option value="Herr">Herr</option>
-#         <option value="Frau">Frau</option>
-#     </select>
-#     <br>
-#     <label for="vorname">Vor
